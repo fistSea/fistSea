@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>about · LastSea&#39;s Studio</title>
+    <title>Vue(七) · LastSea&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="about-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">LastSea&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Vue(七)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">LastSea's Studio</a>
 </header>
@@ -229,23 +238,61 @@ height:50vh;
     <!-- 主页  -->
     
     
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/about-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            about
+            Vue(七)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">622</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2017/09/22</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -346,11 +393,79 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
+            <main class="main post-page">
     <article class="article-entry">
-        
+        <h4 id="渲染数组-value-list-和对象的键值对-key-value-pair-以及排序"><a href="#渲染数组-value-list-和对象的键值对-key-value-pair-以及排序" class="headerlink" title="渲染数组(value list)和对象的键值对(key value pair)以及排序"></a>渲染数组(value list)和对象的键值对(key value pair)以及排序</h4><a id="more"></a>
+<h5 id="v-for-渲染数组-value-list"><a href="#v-for-渲染数组-value-list" class="headerlink" title="v-for 渲染数组(value list)"></a>v-for 渲染数组(value list)</h5><p>v-for 指令需要以 item in items 形式的特殊语法，items 是源数据数组并且item是数组元素迭代的别名。</p>
+<p>模板:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=<span class="string">"item in items"</span>&gt; &#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">  <span class="function"><span class="title">data</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      msg: &#123;</span><br><span class="line">          a:<span class="string">'父传子a'</span>,</span><br><span class="line">          b:<span class="string">'父传子2'</span></span><br><span class="line">      &#125;,  </span><br><span class="line">      items:[1,2,4,3,6,5]</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<h5 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h5><p>js:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">   sortItems:<span class="function"><span class="title">function</span></span>()&#123; //sortItems为自定义变量,要替换模板的items</span><br><span class="line">      <span class="built_in">return</span> this.items.sort(this.sortNumber)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    sortNumber:<span class="keyword">function</span> (a,b)&#123;</span><br><span class="line">            <span class="built_in">return</span> a-b</span><br><span class="line">  &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure></p>
+<p>a,b表示数组中的任意两个元素，若return &gt; 0 b前a后；reutrn &lt; 0 a前b后,a-b表示从小到大排列.</p>
+<p>模板:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">   &lt;li v-for=<span class="string">"item in sortItems"</span>&gt;&#123;&#123;item&#125;&#125;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="v-for-渲染对象的键值对-key-value-pair"><a href="#v-for-渲染对象的键值对-key-value-pair" class="headerlink" title="v-for 渲染对象的键值对(key value pair)"></a>v-for 渲染对象的键值对(key value pair)</h5><p>对象的渲染和数组一样,不同的点在于对象的写法和读取.为了和数组的区别,我们下边把数组的也写上.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">items:[1,2,4,34,6,5],//数组</span><br><span class="line">eating:[     //对象</span><br><span class="line">  &#123;name:<span class="string">'苹果'</span>,chopper:<span class="string">'2斤'</span>&#125;,</span><br><span class="line">  &#123;name:<span class="string">'香蕉'</span>,chopper:<span class="string">'3斤'</span>&#125;,</span><br><span class="line">  &#123;name:<span class="string">'橘子'</span>,chopper:<span class="string">'4斤'</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>模板:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li v-for=<span class="string">"eat in eating"</span>&gt;</span><br><span class="line">      &#123;&#123;eat.name&#125;&#125; - &#123;&#123;eat.chopper&#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>加入索引序号：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li v-for=<span class="string">"(eat,index) in eating"</span>&gt;</span><br><span class="line">    &#123;&#123;index+1&#125;&#125;:  &#123;&#123;eat.name&#125;&#125; - &#123;&#123;eat.chopper&#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="对象排序"><a href="#对象排序" class="headerlink" title="对象排序"></a>对象排序</h5><p>数字数组进行a-b比较大小时,可以直接计算,而数组对象进行排序则需要对象里的一个变量进行比较,如下,是用eating.chopper来进行比较的.</p>
+<p>需要注意的是排序时的模板eating需要换成sortEating</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">      &lt;li v-for=<span class="string">"(eat,index) in sortEating"</span>&gt;</span><br><span class="line">        &#123;&#123;index+1&#125;&#125;:  &#123;&#123;eat.name&#125;&#125; - &#123;&#123;eat.chopper&#125;&#125;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> computed:&#123;</span><br><span class="line">   sortItems:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      <span class="built_in">return</span> this.items.sort(this.sortNumber)</span><br><span class="line">    &#125;,</span><br><span class="line">    sortEating:<span class="function"><span class="title">function</span></span>()&#123; //数组对象</span><br><span class="line">      <span class="built_in">return</span> this.sortEat(this.eating,<span class="string">'chopper'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    sortNumber:<span class="keyword">function</span> (a,b)&#123;</span><br><span class="line">            <span class="built_in">return</span> b<span class="_">-a</span></span><br><span class="line">  &#125;,</span><br><span class="line">    sortEat:<span class="keyword">function</span>(array,key)&#123;</span><br><span class="line">        </span><br><span class="line">          <span class="built_in">return</span> array.sort(<span class="keyword">function</span>(a,b)&#123;</span><br><span class="line">            var x=a[key];</span><br><span class="line">            console.log(a[key])</span><br><span class="line">             var y=b[key];</span><br><span class="line">            <span class="built_in">return</span> ((x&lt;y)?-1:((x&gt;y)?1:0));</span><br><span class="line">          &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'YayaR',              //比如我的叫anTtutu
+  repo: 'YayaR.github.io',                 //比如我的叫anTtutu.github.io
+  oauth: {
+    client_id: '0bad35461e61ed11598d',          //比如我的828***********
+    client_secret: '12a487ba3ca3646865ecfc21a3238aad77d0eb4a',  //比如我的49e************************
+  },
+})
+gitment.render('container')
+</script>
     </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2017/09/25/Vue-°Ë/" title="Vue(八)">
+                    <div class="nextTitle">Vue(八)</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2017/09/20/Vue-×é¼þ/" title="Vue 组件">
+                    <div class="prevTitle">Vue 组件</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -435,6 +550,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#渲染数组-value-list-和对象的键值对-key-value-pair-以及排序"><span class="toc-number">1.</span> <span class="toc-text">渲染数组(value list)和对象的键值对(key value pair)以及排序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#v-for-渲染数组-value-list"><span class="toc-number">1.1.</span> <span class="toc-text">v-for 渲染数组(value list)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#数组排序"><span class="toc-number">1.2.</span> <span class="toc-text">数组排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#v-for-渲染对象的键值对-key-value-pair"><span class="toc-number">1.3.</span> <span class="toc-text">v-for 渲染对象的键值对(key value pair)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#对象排序"><span class="toc-number">1.4.</span> <span class="toc-text">对象排序</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -889,6 +1022,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

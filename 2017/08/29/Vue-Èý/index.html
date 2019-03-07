@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>about · LastSea&#39;s Studio</title>
+    <title>Vue(三) · LastSea&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="about-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">LastSea&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Vue(三)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">LastSea's Studio</a>
 </header>
@@ -229,23 +238,61 @@ height:50vh;
     <!-- 主页  -->
     
     
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/about-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            about
+            Vue(三)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">690</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2017/08/29</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -346,11 +393,78 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
+            <main class="main post-page">
     <article class="article-entry">
-        
+        <h4 id="选项对象有哪些值可取"><a href="#选项对象有哪些值可取" class="headerlink" title="选项对象有哪些值可取"></a>选项对象有哪些值可取</h4><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">    el: <span class="string">'#example'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        a:1,</span><br><span class="line">         message: <span class="string">''</span></span><br><span class="line">         &#125;,</span><br><span class="line">      components: &#123;</span><br><span class="line">        <span class="string">'my-component'</span>: &#123;</span><br><span class="line">            template: `&lt;div&gt;这是一个自定义组件&lt;/div&gt;`,</span><br><span class="line">        &#125;</span><br><span class="line">     &#125;</span><br><span class="line">    methods: &#123;</span><br><span class="line">    reversedMessage: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">        <span class="built_in">return</span> this.message.split(<span class="string">''</span>).reverse().join(<span class="string">''</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    a: <span class="keyword">function</span> (val, oldVal) &#123;</span><br><span class="line">        this.message = <span class="string">'a的旧值为'</span> + oldVal + <span class="string">'，新值为'</span> + val;</span><br><span class="line">         &#125;</span><br><span class="line">    computed: &#123;&#125;,</span><br></pre></td></tr></table></figure>
+<p>el：提供一个在页面上已存在的 DOM 元素作为 Vue 实例的挂载目标。</p>
+<p>data：Vue实例的数据对象，Vue将会递归data的属性并转换为getter/setter，只有data内的数据属性是响<br>应的。但是在组件定义中，data必须声明返回数据对象的函数。因为组件可能被用来创建多个实例。</p>
+<p>methods：方法写在其内，方法中的 this 自动绑定为 Vue 实例。</p>
+<p>computed：vue实例的计算属性，与methods的区别是：计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。</p>
+<p>template：一个字符串模板作为 Vue 实例的标识使用，模板将会 替换 挂载的元素。</p>
+<p>components：在某个Vue实例中注册只有自己能使用的组件写在其内。</p>
+<p>watch：Vue提供了一种通用的方式来观察和响应Vue实例上的数据变动</p>
+<p>生命周期钩子：每个Vue实例在被创建之前都要经过一系列的初始化过程。在这些过程内可以自定义一些方法。</p>
+<h5 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h5><p>beforeCreate:在实例初始化之后，数据观测(observer) 和 watcher 事件配置之前被调用。</p>
+<p>created:实例已经创建完成之后被调用。然而，挂载阶段还没开始，$el 属性目前不可见。</p>
+<p>beforeMount:在挂载开始之前被调用</p>
+<p>mounted:el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用</p>
+<p>beforeUpdate:数据更新时调用</p>
+<p>updated:组件DOM已更新完毕</p>
+<p>beforeDestroy：实例销毁之前调用</p>
+<p>destroyed：Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。</p>
+<h4 id="大型应用工程中的组件划分"><a href="#大型应用工程中的组件划分" class="headerlink" title="大型应用工程中的组件划分"></a>大型应用工程中的组件划分</h4><p>大型应用工程中划分组件以基础组件和和业务组件来划分，像一些页面布局，重复利用率高的可以划分为基础组</p>
+<p>件。像一些包含业务逻辑，含数据交互过多的划分为业务组件，业务组件内可以包含基础组件</p>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'YayaR',              //比如我的叫anTtutu
+  repo: 'YayaR.github.io',                 //比如我的叫anTtutu.github.io
+  oauth: {
+    client_id: '0bad35461e61ed11598d',          //比如我的828***********
+    client_secret: '12a487ba3ca3646865ecfc21a3238aad77d0eb4a',  //比如我的49e************************
+  },
+})
+gitment.render('container')
+</script>
     </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2017/08/30/Vue-ËÄ/" title="Vue(四)">
+                    <div class="nextTitle">Vue(四)</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2017/08/26/Vue-¶þ/" title="Vue(二)">
+                    <div class="prevTitle">Vue(二)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -435,6 +549,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#选项对象有哪些值可取"><span class="toc-number">1.</span> <span class="toc-text">选项对象有哪些值可取</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#生命周期钩子"><span class="toc-number">1.1.</span> <span class="toc-text">生命周期钩子</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大型应用工程中的组件划分"><span class="toc-number">2.</span> <span class="toc-text">大型应用工程中的组件划分</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -889,6 +1021,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

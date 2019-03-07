@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>about · LastSea&#39;s Studio</title>
+    <title>Vue(六) · LastSea&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,7 +203,7 @@
 </head>
 
     
-        <body class="about-body">
+        <body class="post-body">
     
     
 <header class="header">
@@ -211,6 +211,15 @@
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">LastSea&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Vue(六)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">LastSea's Studio</a>
 </header>
@@ -229,23 +238,61 @@ height:50vh;
     <!-- 主页  -->
     
     
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/about-bg.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            about
+            Vue(六)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">1.4k</span>Reading time: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2017/09/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -346,11 +393,112 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <!-- 不可以删除，否则会调用post的layout  -->
-<main class="main about-page">
+            <main class="main post-page">
     <article class="article-entry">
-        
+        <h4 id="vue-cli的安装和文件解读"><a href="#vue-cli的安装和文件解读" class="headerlink" title="vue-cli的安装和文件解读"></a>vue-cli的安装和文件解读</h4><a id="more"></a>
+<h5 id="vue-cli的安装"><a href="#vue-cli的安装" class="headerlink" title="vue-cli的安装"></a>vue-cli的安装</h5><p>1:安装vue-cli之前我们需要安装npm<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">(下载链接)</a>，安装后检测npm是否安装成功，在终端输入如下，若显示版本号则说明你已经成功安装了npm。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
+<p>2: 安装vue-cli，终端输入如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-cli -g</span><br></pre></td></tr></table></figure></p>
+<p>安装成功后可以终端输入 vue -V 查看版本号，-g是全局安装的意思。</p>
+<p>3: 初始化项目，首先新建一个文件夹用来存放自己的项目，然后终端进入这个文件夹，并输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init &lt;template-name&gt; &lt;project-name&gt;</span><br></pre></td></tr></table></figure>
+<p>init: 用来命令初始化项目</p>
+<p>template-name：表示模版名称，目前官方提供了五种模版，</p>
+<pre><code>webpack-一个全面的webpack+vue-loader的模板，功能包括热加载，linting,检测和CSS扩展。
+
+webpack-simple-一个简单webpack+vue-loader的模板，不包含其他功能，让你快速的搭建vue的开发环境。
+
+browserify-一个全面的Browserify+vueify 的模板，功能包括热加载，linting,单元检测。
+
+browserify-simple-一个简单Browserify+vueify的模板，不包含其他功能，让你快速的搭建vue的开发环境。
+
+simple-一个最简单的单页应用模板。
+
+project-name： 项目名称，自己随意命名（指自己建的文件下产生的项目文件） 
+
+开发中我们常用的是 webpack 模板,
+</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack vue-router</span><br></pre></td></tr></table></figure>
+<p>输入上行命令后,会询问我们几个选项:</p>
+<pre><code>Project name :此前 init 时我们写了 project-name, 在这里就不用写了,直接回车就行.
+
+Project description:项目描述，默认为A Vue.js project,直接回车，不用编写。
+
+Author：作者，如果你有配置git的作者，他会读取。
+
+Install  vue-router? 是否安装vue的路由插件，我们这里需要安装，所以选择Y
+
+Use ESLint to lint your code? 是否用ESLint来限制你的代码错误和风格。如果你是大型团队开发，最好是进行配置。这里我进行了配置,个人建议如果不熟悉 es6语法规则请默认回车.
+
+setup unit tests with  Karma + Mocha? 是否需要安装单元测试工具Karma+Mocha，我们这里不需要，所以输入n。
+
+Setup e2e tests with Nightwatch?是否安装e2e来进行用户行为模拟测试，我们这里不需要，所以输入n。
+</code></pre><p>若未报红error出错,这证明我们已经初始化好了第一步,接下来需要启动这个项目:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> vue-router</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<p>第一步是进入我们的 vue 项目包,第二步是安装我们的项目依赖包,第三步是运行我们的程序</p>
+<h5 id="vue-的项目结构"><a href="#vue-的项目结构" class="headerlink" title="vue 的项目结构"></a>vue 的项目结构</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">|-- build                            // 项目构建(webpack)相关代码</span><br><span class="line">|   |-- build.js                     // 生产环境构建代码</span><br><span class="line">|   |-- check-version.js             // 检查node、npm等版本</span><br><span class="line">|   |-- dev-client.js                // 热重载相关</span><br><span class="line">|   |-- dev-server.js                // 构建本地服务器</span><br><span class="line">|   |-- utils.js                     // 构建工具相关</span><br><span class="line">|   |-- webpack.base.conf.js         // webpack基础配置</span><br><span class="line">|   |-- webpack.dev.conf.js          // webpack开发环境配置</span><br><span class="line">|   |-- webpack.prod.conf.js         // webpack生产环境配置</span><br><span class="line">|-- config                           // 项目开发环境配置</span><br><span class="line">|   |-- dev.env.js                   // 开发环境变量</span><br><span class="line">|   |-- index.js                     // 项目一些配置变量</span><br><span class="line">|   |-- prod.env.js                  // 生产环境变量</span><br><span class="line">|   |-- test.env.js                  // 测试环境变量</span><br><span class="line">|-- src                              // 源码目录</span><br><span class="line">|   |-- components                     // vue公共组件</span><br><span class="line">|   |-- store                          // vuex的状态管理</span><br><span class="line">|   |-- App.vue                        // 页面入口文件</span><br><span class="line">|   |-- main.js                        // 程序入口文件，加载各种公共组件</span><br><span class="line">|-- static                           // 静态文件，比如一些图片，json数据等</span><br><span class="line">|   |-- data                           // 群聊分析得到的数据用于数据可视化</span><br><span class="line">|-- .babelrc                         // ES6语法编译配置</span><br><span class="line">|-- .editorconfig                    // 定义代码格式</span><br><span class="line">|-- .gitignore                       // git上传需要忽略的文件格式</span><br><span class="line">|-- README.md                        // 项目说明</span><br><span class="line">|-- favicon.ico </span><br><span class="line">|-- index.html                       // 入口页面</span><br><span class="line">|-- package.json                     // 项目基本信息</span><br><span class="line">.</span><br></pre></td></tr></table></figure>
+<h6 id="main-js-文件解读"><a href="#main-js-文件解读" class="headerlink" title="main.js 文件解读"></a>main.js 文件解读</h6><p>main.js 是整个项目的入口文件,在 src 下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import Vue from <span class="string">'vue'</span></span><br><span class="line">import App from <span class="string">'./App'</span></span><br><span class="line">import router from <span class="string">'./router'</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">/* eslint-disable no-new */</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  router,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span>,</span><br><span class="line">  components: &#123; App &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p> 通过import App from ‘./App’这句话引入 App.vue 文件.</p>
+<h6 id="App-vue-文件"><a href="#App-vue-文件" class="headerlink" title="App.vue 文件"></a>App.vue 文件</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;img src=<span class="string">"./assets/logo.png"</span>&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">'app'</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line"><span class="comment">#app &#123;</span></span><br><span class="line">  font-family: <span class="string">'Avenir'</span>, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: <span class="comment">#2c3e50;</span></span><br><span class="line">  margin-top: 60px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>其中 在template标签内写HTMLDom 结构;router-view标签是引入路由</p>
+<p>script标签包括的js内容：你可以在这里些一些页面的动态效果和Vue的逻辑代码。</p>
+<p>style标签包裹的css内容：这里就是你平时写的CSS样式，对页面样子进行装饰用的，需要特别说</p>
+<p>明的是你可以用下行代码来声明这些css样式只在本模板中起作用。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure></p>
+<h6 id="router-index-js-路由文件"><a href="#router-index-js-路由文件" class="headerlink" title="router/index.js 路由文件"></a>router/index.js 路由文件</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import Vue from <span class="string">'vue'</span></span><br><span class="line">import Router from <span class="string">'vue-router'</span></span><br><span class="line">import HelloWorld from <span class="string">'@/components/HelloWorld'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router)</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default new Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Hello'</span>,</span><br><span class="line">      component: HelloWorld</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>我们可以看到 import HelloWorld from ‘@/components/HelloWorld’这句话， 文件引入了/components/HelloWorldvue文件。这个文件里就配置了一个路由，就是当我们访问网站时给我们显示HelloWorld.vue的内容。</p>
+<p>下章会讲述 router 路由的内容.</p>
+<p><div id="container"></div></p>
+<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: 'YayaR',              //比如我的叫anTtutu
+  repo: 'YayaR.github.io',                 //比如我的叫anTtutu.github.io
+  oauth: {
+    client_id: '0bad35461e61ed11598d',          //比如我的828***********
+    client_secret: '12a487ba3ca3646865ecfc21a3238aad77d0eb4a',  //比如我的49e************************
+  },
+})
+gitment.render('container')
+</script>
+
     </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2017/09/03/vue-router-Ò»/" title="vue-router(一)">
+                    <div class="nextTitle">vue-router(一)</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2017/09/02/Vue-Îå/" title="Vue(五)">
+                    <div class="prevTitle">Vue(五)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -435,6 +583,24 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#vue-cli的安装和文件解读"><span class="toc-number">1.</span> <span class="toc-text">vue-cli的安装和文件解读</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#vue-cli的安装"><span class="toc-number">1.1.</span> <span class="toc-text">vue-cli的安装</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#vue-的项目结构"><span class="toc-number">1.2.</span> <span class="toc-text">vue 的项目结构</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#main-js-文件解读"><span class="toc-number">1.2.1.</span> <span class="toc-text">main.js 文件解读</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#App-vue-文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">App.vue 文件</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#router-index-js-路由文件"><span class="toc-number">1.2.3.</span> <span class="toc-text">router/index.js 路由文件</span></a></li></ol></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -889,6 +1055,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
