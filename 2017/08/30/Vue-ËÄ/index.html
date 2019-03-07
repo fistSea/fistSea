@@ -397,7 +397,7 @@ height:50vh;
     <article class="article-entry">
         <h4 id="Vue模板语法和计算属性等基础常识"><a href="#Vue模板语法和计算属性等基础常识" class="headerlink" title="Vue模板语法和计算属性等基础常识"></a>Vue模板语法和计算属性等基础常识</h4><a id="more"></a>
 <h5 id="Vue-的模板语法和原生的-HTML-JavaScript-有何异同？"><a href="#Vue-的模板语法和原生的-HTML-JavaScript-有何异同？" class="headerlink" title="Vue 的模板语法和原生的 HTML + JavaScript 有何异同？"></a>Vue 的模板语法和原生的 HTML + JavaScript 有何异同？</h5><p>相同点：都是根据最底层js为基础。<br>不同点：Vue：内置指令和自定义指令，内置过滤器和自定义过滤器，支持双向数据绑定，组件化，Model+View+ViewModel的操作数据的方式。<br>javaScript：直接操作DOM的方式。</p>
-<h4 id="Vue-模板语法的解析原理"><a href="#Vue-模板语法的解析原理" class="headerlink" title="Vue 模板语法的解析原理"></a>Vue 模板语法的解析原理</h4><p>JavaScript 是被 V8 引擎执行的脚本语言，<br>Vue template 是被 Vue 模板引擎执行的“类脚本”语言。<br>涉及到编译原理，大致流程为：切词、转换、输出。<a href="https://yayar.github.io/2017/10/26/Vue-%E4%BA%8C/#more" target="_blank" rel="noopener">(参考第二篇Object.defineProperty)</a> </p>
+<h4 id="Vue-模板语法的解析原理"><a href="#Vue-模板语法的解析原理" class="headerlink" title="Vue 模板语法的解析原理"></a>Vue 模板语法的解析原理</h4><p>JavaScript 是被 V8 引擎执行的脚本语言，<br>Vue template 是被 Vue 模板引擎执行的“类脚本”语言。<br>涉及到编译原理，大致流程为：切词、转换、输出。<a href="https://fistsea.github.io/2017/10/26/Vue-%E4%BA%8C/#more" target="_blank" rel="noopener">(参考第二篇Object.defineProperty)</a> </p>
 <h4 id="什么时候应该使用计算属性？"><a href="#什么时候应该使用计算属性？" class="headerlink" title="什么时候应该使用计算属性？"></a>什么时候应该使用计算属性？</h4><p>当你想要的计算更改依赖于另一个属性时，可以使用Vue的计算属性 computed 。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var vm = new Vue(&#123;</span><br><span class="line">  el: <span class="string">'#example'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    a: 1</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    b: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      // `this` 指向 vm 实例,b依赖于a</span><br><span class="line">      <span class="built_in">return</span> this.a + 1</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>set和get属性在计算中也能使用，ardNum 的值会随着cardNum的值而函数变化，如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&#123;&#123;cardNum&#125;&#125;&lt;/p&gt;</span><br></pre></td></tr></table></figure></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var vm=new Vue(&#123;</span><br><span class="line">    el: <span class="string">'#app'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">           </span><br><span class="line">            a: <span class="string">"100"</span>,</span><br><span class="line">            ruleForm:&#123;</span><br><span class="line">            ardNum: <span class="string">""</span></span><br><span class="line">        &#125;</span><br><span class="line">             </span><br><span class="line">             &#125;,</span><br><span class="line">            </span><br><span class="line">computed: &#123;</span><br><span class="line">   </span><br><span class="line">  cardNum: &#123;</span><br><span class="line">     </span><br><span class="line">    get: <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> (this.ruleForm.ardNum/100);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">set</span>: <span class="keyword">function</span>(vaule) &#123;</span><br><span class="line">        </span><br><span class="line">        this.ruleForm.ardNum = vaule*100;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
@@ -409,11 +409,11 @@ height:50vh;
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  owner: 'YayaR',              //比如我的叫anTtutu
-  repo: 'YayaR.github.io',                 //比如我的叫anTtutu.github.io
+  owner: 'fistsea',              //比如我的叫anTtutu
+  repo: 'fistsea.github.io',                 //比如我的叫anTtutu.github.io
   oauth: {
-    client_id: '0bad35461e61ed11598d',          //比如我的828***********
-    client_secret: '12a487ba3ca3646865ecfc21a3238aad77d0eb4a',  //比如我的49e************************
+    client_id: '0e27960618be3f7b656a',          //比如我的828***********
+    client_secret: 'bd5466810fa91e3506da0b2c9ea142c9129cf59a',  //比如我的49e************************
   },
 })
 gitment.render('container')
@@ -567,12 +567,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -960,15 +954,15 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
+        <span class="sidebar-category-name" data-categories="备忘录模式"><span class="iconfont-archer">&#xe60a;</span>备忘录模式</span>
     
         <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
+    
+        <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
     
         <span class="sidebar-category-name" data-categories="Vue/Vue基础"><span class="iconfont-archer">&#xe60a;</span>Vue/Vue基础</span>
     
         <span class="sidebar-category-name" data-categories="Vue/Echarts"><span class="iconfont-archer">&#xe60a;</span>Vue/Echarts</span>
-    
-        <span class="sidebar-category-name" data-categories="备忘录模式"><span class="iconfont-archer">&#xe60a;</span>备忘录模式</span>
     
         <span class="sidebar-category-name" data-categories="Vue/Vue组件"><span class="iconfont-archer">&#xe60a;</span>Vue/Vue组件</span>
     
