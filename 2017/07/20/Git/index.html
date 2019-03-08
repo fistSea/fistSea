@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LastSea&#39;s Studio</title>
+    <title>Git基础用法 · LastSea&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">LastSea&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Git基础用法</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">LastSea's Studio</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Git基础用法
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">644</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2017/07/20</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,221 +393,68 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/05/vue-router2/">
-            
-                <span>vue-router(二)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="router-配置子路由"><a href="#router-配置子路由" class="headerlink" title="router 配置子路由"></a>router 配置子路由</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/05</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="git-提交三部曲"><a href="#git-提交三部曲" class="headerlink" title="git 提交三部曲"></a>git 提交三部曲</h4><a id="more"></a>
+<p>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理,它的优点在于:</p>
+<p>1:适合分布式开发，强调个体。</p>
+<p>2:公共服务器压力和数据量都不会太大。</p>
+<p>3:速度快、灵活。</p>
+<p>4:任意两个开发者之间可以很容易的解决冲突。</p>
+<p>5:离线工作。</p>
+<p>我们主要说一下 利用Git 工作时的基础步骤:</p>
+<p>每次提交代码时,首先需要拉取分支代码,即使只有你和后端两个人,也要拉取,要养成一个好习惯,执行命令:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<p>拉取代码成功之后,我们需要做的就是把我们本地的代码提交到远程服务器分支,这中间需要三个步骤:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add --all</span><br></pre></td></tr></table></figure>
+<p>git add 的作用是把我们要提交的文件的信息添加到索引库中,也就是暂存区中.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"更改标识"</span></span><br></pre></td></tr></table></figure>
+<p>git commit 的作用是将修改从暂存区提交到本地版本库,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin 分支名</span><br></pre></td></tr></table></figure>
+<p>git push 的作用是将修改从本地版本库提交到远程服务器分支.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch 分支名</span><br></pre></td></tr></table></figure>
+<p>git branch 是创建分支所执行的命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout 分支名</span><br></pre></td></tr></table></figure>
+<p>git checkout 是切换分支所执行的命令</p>
+<h5 id="Git-处理冲突文件"><a href="#Git-处理冲突文件" class="headerlink" title="Git 处理冲突文件"></a>Git 处理冲突文件</h5><p>Git 使用时,冲突是避免不了的,当我们 git pull 出现冲突时,我们需要作出如下处理:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash       //撤销你的文件修改内容</span><br><span class="line">git pull        //拉取仓库文件,此时你已撤销你的修改,可以正常拉取</span><br><span class="line">git stash pop    //恢复你的修改内容</span><br></pre></td></tr></table></figure>
+<p>此时经过这三个步骤,你下面需要做的就是在你拉去后的文件中合并冲突,合并时要确定万无一失,</p>
+<p>然后在执行提交三部曲的步骤就可以了.</p>
+<p>有个小经验想分享给大家,当你在a 分支修改内容,但又没完成时,突然接到需求需要在 b 分支修改内容并提交,此时你的a分支需求正在实现中.</p>
+<p>不能提交到 a 分支上,此时要怎么办呢,如果直接切换b分支,那自己在a 分支写的东西岂不是白写了,我们这时候就要用到 git stash这个命令.</p>
+<p>git stash 后,切换分支b,b 完成后切换到a, 执行 git stash pop, 就会恢复到你此前的修改状态.</p>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/03/vue-router1/">
-            
-                <span>vue-router(一)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="router-配置以及-router-link-跳转"><a href="#router-配置以及-router-link-跳转" class="headerlink" title="router 配置以及 router-link 跳转"></a>router 配置以及 router-link 跳转</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/03</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/02/Vue6/">
-            
-                <span>Vue(六)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="vue-cli的安装和文件解读"><a href="#vue-cli的安装和文件解读" class="headerlink" title="vue-cli的安装和文件解读"></a>vue-cli的安装和文件解读</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/02/Vue5/">
-            
-                <span>Vue(五)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="Vue的Class及v-if-v-show"><a href="#Vue的Class及v-if-v-show" class="headerlink" title="Vue的Class及v-if,v-show"></a>Vue的Class及v-if,v-show</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/30/Vue4/">
-            
-                <span>Vue(四)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="Vue模板语法和计算属性等基础常识"><a href="#Vue模板语法和计算属性等基础常识" class="headerlink" title="Vue模板语法和计算属性等基础常识"></a>Vue模板语法和计算属性等基础常识</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/29/Vue3/">
-            
-                <span>Vue(三)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="选项对象有哪些值可取"><a href="#选项对象有哪些值可取" class="headerlink" title="选项对象有哪些值可取"></a>选项对象有哪些值可取</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/26/Vue2/">
-            
-                <span>Vue(二)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="Vue-是如何实现双向绑定的。"><a href="#Vue-是如何实现双向绑定的。" class="headerlink" title="Vue 是如何实现双向绑定的。"></a>Vue 是如何实现双向绑定的。</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/25/vue1/">
-            
-                <span>Vue(一)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。"><a href="#vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。" class="headerlink" title="vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。"></a>vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/25</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/07/20/Git/">
-            
-                <span>Git基础用法</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="git-提交三部曲"><a href="#git-提交三部曲" class="headerlink" title="git 提交三部曲"></a>git 提交三部曲</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/07/20</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2017/08/25/vue1/" title="Vue(一)">
+                    <div class="nextTitle">Vue(一)</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -637,6 +539,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#git-提交三部曲"><span class="toc-number">1.</span> <span class="toc-text">git 提交三部曲</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Git-处理冲突文件"><span class="toc-number">1.1.</span> <span class="toc-text">Git 处理冲突文件</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1087,6 +1007,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

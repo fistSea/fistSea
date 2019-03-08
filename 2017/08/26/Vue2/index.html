@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>LastSea&#39;s Studio</title>
+    <title>Vue(二) · LastSea&#39;s Studio</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">LastSea&#39;s Studio</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Vue(二)</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">LastSea's Studio</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Vue(二)
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">612</span>Reading time: <span class="post-count reading-time">2 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2017/08/26</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,221 +393,54 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/05/vue-router2/">
-            
-                <span>vue-router(二)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="router-配置子路由"><a href="#router-配置子路由" class="headerlink" title="router 配置子路由"></a>router 配置子路由</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/05</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="Vue-是如何实现双向绑定的。"><a href="#Vue-是如何实现双向绑定的。" class="headerlink" title="Vue 是如何实现双向绑定的。"></a>Vue 是如何实现双向绑定的。</h4><a id="more"></a>
+<p>本篇文章会主要学习双向绑定的实现原理，并用js原生写个小例子。</p>
+<h5 id="首先我们需要知道Vue是用什么来实现数据劫持。"><a href="#首先我们需要知道Vue是用什么来实现数据劫持。" class="headerlink" title="首先我们需要知道Vue是用什么来实现数据劫持。"></a>首先我们需要知道Vue是用什么来实现数据劫持。</h5> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var vm =new Vue (&#123;</span><br><span class="line">     data:&#123;</span><br><span class="line">         obj:&#123;</span><br><span class="line">             a:1</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;,</span><br><span class="line">     created:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">         console.log(this.obj)</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<p>用Vue实现上述代码，并打开控制台，查看object会发现get和set两个属性：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;__ob__: Observer&#125;</span><br><span class="line">    a</span><br><span class="line">    </span><br><span class="line">    (...)</span><br><span class="line">    __ob__</span><br><span class="line">    </span><br><span class="line">    Observer &#123;value: &#123;…&#125;, dep: Dep, vmCount: 0&#125;</span><br><span class="line">    get a</span><br><span class="line">    </span><br><span class="line">    ƒ reactiveGetter()</span><br><span class="line">    <span class="built_in">set</span> a</span><br><span class="line">    </span><br><span class="line">    ƒ reactiveSetter(newVal)</span><br><span class="line">    __proto__</span><br><span class="line">    </span><br><span class="line">    Object</span><br></pre></td></tr></table></figure></p>
+<h5 id="Object-defineProperty-究竟是用来做什么的？"><a href="#Object-defineProperty-究竟是用来做什么的？" class="headerlink" title="Object.defineProperty( )究竟是用来做什么的？"></a>Object.defineProperty( )究竟是用来做什么的？</h5><p>它可以来控制一个对象属性的一些特有操作，比如读写权、是否可以枚举，这里我们要先来研究下它对应的两个描述属性get和set。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var person=&#123;&#125;;</span><br><span class="line">var name= <span class="string">''</span>;</span><br><span class="line">Object.defineProperty(person,<span class="string">'name'</span>,&#123;</span><br><span class="line">    <span class="built_in">set</span>:<span class="keyword">function</span>(val)&#123;</span><br><span class="line">        name=val;</span><br><span class="line">        console.log(val)//李世杰</span><br><span class="line">    &#125;,</span><br><span class="line">    get:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">        <span class="built_in">return</span> <span class="string">'胖人'</span>+name+<span class="string">'有一个老年mac'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">person.name=<span class="string">' 李世杰'</span></span><br><span class="line">console.log(person.name);//胖人李世杰有一个老年mac</span><br></pre></td></tr></table></figure></p>
+<p>可以发现，set是设置name属性时触发，get是读取name属性时触发。也说明了Vue是<br>的确通过这种方法劫持数据的。</p>
+<h5 id="实现MVVM双向绑定的前言"><a href="#实现MVVM双向绑定的前言" class="headerlink" title="实现MVVM双向绑定的前言"></a>实现MVVM双向绑定的前言</h5><p>实现MVVM双向绑定主要包含两个方面。即数据变化更新视图，视图变化更新数据。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data &lt;========&gt; view;</span><br></pre></td></tr></table></figure></p>
+<p>数据更新视图的重点是如何知道数据变了，只要知道数据变了，那么接下去的事都好处理。如何知道数据变了，其实上文我们已经给出答案了，就是通过Object.defineProperty()对属性设置一个set函数，当数据改变了就会来触发这个函数。</p>
+<p>所以我们只要将一些需要更新的方法放在这里面就可以实现data更新view了,接下来就是用到上一篇文章所提到的响应式了<br>1.实现一个监听器Observer，用来劫持并监听所有属性，如果有变动的，就通知订阅者<br>2.实现一个订阅者Watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图。<br>3.实现一个解析器Compile，可以扫描和解析每个节点的相关指令，并根据初始化模板数据以及初始化相应的订阅器。<br>以后我们会从原生js角度来模拟实现Vue的双向绑定。</p>
+
     </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/03/vue-router1/">
-            
-                <span>vue-router(一)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="router-配置以及-router-link-跳转"><a href="#router-配置以及-router-link-跳转" class="headerlink" title="router 配置以及 router-link 跳转"></a>router 配置以及 router-link 跳转</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/03</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/02/Vue6/">
-            
-                <span>Vue(六)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="vue-cli的安装和文件解读"><a href="#vue-cli的安装和文件解读" class="headerlink" title="vue-cli的安装和文件解读"></a>vue-cli的安装和文件解读</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/09/02/Vue5/">
-            
-                <span>Vue(五)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="Vue的Class及v-if-v-show"><a href="#Vue的Class及v-if-v-show" class="headerlink" title="Vue的Class及v-if,v-show"></a>Vue的Class及v-if,v-show</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/30/Vue4/">
-            
-                <span>Vue(四)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="Vue模板语法和计算属性等基础常识"><a href="#Vue模板语法和计算属性等基础常识" class="headerlink" title="Vue模板语法和计算属性等基础常识"></a>Vue模板语法和计算属性等基础常识</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/30</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/29/Vue3/">
-            
-                <span>Vue(三)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="选项对象有哪些值可取"><a href="#选项对象有哪些值可取" class="headerlink" title="选项对象有哪些值可取"></a>选项对象有哪些值可取</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/29</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/26/Vue2/">
-            
-                <span>Vue(二)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="Vue-是如何实现双向绑定的。"><a href="#Vue-是如何实现双向绑定的。" class="headerlink" title="Vue 是如何实现双向绑定的。"></a>Vue 是如何实现双向绑定的。</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/26</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/08/25/vue1/">
-            
-                <span>Vue(一)</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。"><a href="#vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。" class="headerlink" title="vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。"></a>vue作为一个广受欢迎的MVVM框架，是值得从基础理解它的。</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/08/25</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2017/07/20/Git/">
-            
-                <span>Git基础用法</span>
-        </a>
-        <div class="abstract-content">
-            <h4 id="git-提交三部曲"><a href="#git-提交三部曲" class="headerlink" title="git 提交三部曲"></a>git 提交三部曲</h4>
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2017/07/20</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2017/08/29/Vue3/" title="Vue(三)">
+                    <div class="nextTitle">Vue(三)</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2017/08/25/vue1/" title="Vue(一)">
+                    <div class="prevTitle">Vue(一)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">&#60; PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -637,6 +525,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-是如何实现双向绑定的。"><span class="toc-number">1.</span> <span class="toc-text">Vue 是如何实现双向绑定的。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#首先我们需要知道Vue是用什么来实现数据劫持。"><span class="toc-number">1.1.</span> <span class="toc-text">首先我们需要知道Vue是用什么来实现数据劫持。</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Object-defineProperty-究竟是用来做什么的？"><span class="toc-number">1.2.</span> <span class="toc-text">Object.defineProperty( )究竟是用来做什么的？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#实现MVVM双向绑定的前言"><span class="toc-number">1.3.</span> <span class="toc-text">实现MVVM双向绑定的前言</span></a></li></ol></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1087,6 +993,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
