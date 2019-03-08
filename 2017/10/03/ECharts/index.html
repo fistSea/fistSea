@@ -410,6 +410,7 @@ height:50vh;
 <p>三:调用 echarts.init 函数</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> default &#123;</span><br><span class="line">  name: <span class="string">'HelloWorld'</span>,</span><br><span class="line">  <span class="function"><span class="title">data</span></span> () &#123;</span><br><span class="line">    <span class="built_in">return</span> &#123;</span><br><span class="line">      opp:&#123;</span><br><span class="line">       series : [</span><br><span class="line">        &#123;</span><br><span class="line">            name: <span class="string">'访问来源'</span>,</span><br><span class="line">            <span class="built_in">type</span>: <span class="string">'pie'</span>,</span><br><span class="line">            radius: <span class="string">'55%'</span>,</span><br><span class="line">            roseType: <span class="string">'angle'</span>,</span><br><span class="line">            data:[</span><br><span class="line">                &#123;value:235, name:<span class="string">'视频广告'</span>&#125;,</span><br><span class="line">                &#123;value:274, name:<span class="string">'联盟广告'</span>&#125;,</span><br><span class="line">                &#123;value:310, name:<span class="string">'邮件营销'</span>&#125;,</span><br><span class="line">                &#123;value:335, name:<span class="string">'直接访问'</span>&#125;,</span><br><span class="line">                &#123;value:400, name:<span class="string">'搜索引擎'</span>&#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]&#125;,</span><br><span class="line">      oppos:&#123;</span><br><span class="line">        title: &#123;</span><br><span class="line">        text: <span class="string">'ECharts 入门示例'</span></span><br><span class="line">      &#125;,</span><br><span class="line">        tooltip: &#123;&#125;,</span><br><span class="line">        xAxis: &#123;</span><br><span class="line">        data: [<span class="string">'衬衫'</span>, <span class="string">'羊毛衫'</span>, <span class="string">'雪纺衫'</span>, <span class="string">'裤子'</span>, <span class="string">'高跟鞋'</span>, <span class="string">'袜子'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">       yAxis: &#123;&#125;,</span><br><span class="line">        series: [&#123;</span><br><span class="line">        name: <span class="string">'销量'</span>,</span><br><span class="line">        <span class="built_in">type</span>: <span class="string">'bar'</span>,</span><br><span class="line">        data: [5, 20, 36, 10, 10, 20]</span><br><span class="line">    &#125;]</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">mounted</span></span>()&#123;</span><br><span class="line">   <span class="built_in">let</span> myChart =  echarts.init(document.getElementById(<span class="string">'myChart'</span>))</span><br><span class="line">    myChart.setOption(</span><br><span class="line">     this.oppos 柱状调用</span><br><span class="line">    );</span><br><span class="line">     <span class="built_in">let</span> myChart2= echarts.init(document.getElementById(<span class="string">'myChart2'</span>))</span><br><span class="line">    myChart2.setOption(</span><br><span class="line">     this.opp //圆状调用</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+        
     </article>
     <!-- license  -->
     
@@ -434,6 +435,21 @@ height:50vh;
     </ul>
     <!-- 评论插件 -->
     <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80MzA1OS8xOTYwNQ">
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
 
 <!-- City版安装代码已完成 -->
     
@@ -559,6 +575,30 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -928,19 +968,19 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
+    
         <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
     
         <span class="sidebar-category-name" data-categories="Vue/Vue基础"><span class="iconfont-archer">&#xe60a;</span>Vue/Vue基础</span>
     
         <span class="sidebar-category-name" data-categories="Vue/Echarts"><span class="iconfont-archer">&#xe60a;</span>Vue/Echarts</span>
     
-        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
-    
         <span class="sidebar-category-name" data-categories="Vue/Vue组件"><span class="iconfont-archer">&#xe60a;</span>Vue/Vue组件</span>
     
-        <span class="sidebar-category-name" data-categories="备忘录模式"><span class="iconfont-archer">&#xe60a;</span>备忘录模式</span>
-    
         <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
+    
+        <span class="sidebar-category-name" data-categories="备忘录模式"><span class="iconfont-archer">&#xe60a;</span>备忘录模式</span>
     
         <span class="sidebar-category-name" data-categories="Vue/Vue-router"><span class="iconfont-archer">&#xe60a;</span>Vue/Vue-router</span>
     
