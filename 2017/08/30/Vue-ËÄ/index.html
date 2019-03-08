@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">436</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">394</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -404,20 +404,7 @@ height:50vh;
 <p>此时若在控制台输入:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.cardNum=2</span><br></pre></td></tr></table></figure></p>
 <p>则vm.ruleForm.ardNum的值会根据set函数而变成200。</p>
 <h4 id="计算属性缓存如何解决"><a href="#计算属性缓存如何解决" class="headerlink" title="计算属性缓存如何解决"></a>计算属性缓存如何解决</h4><p>使用Methods方法或者设置 cache为false<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  example: &#123;</span><br><span class="line">    cache: <span class="literal">false</span>,//设置<span class="literal">false</span>关闭缓存</span><br><span class="line">    get: <span class="function"><span class="title">function</span></span> () &#123;</span><br><span class="line">      <span class="built_in">return</span> Date.now() + this.msg</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><div id="container"></div></p>
-<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  owner: 'fistSea',              //比如我的叫anTtutu
-  repo: 'fistSea.github.io',                 //比如我的叫anTtutu.github.io
-  oauth: {
-    client_id: 'd55bd81ebdb6158c8c22',          //比如我的828***********
-    client_secret: '49f110c8e4f0e95f1f5afd20b6778e3e91a2e1df',  //比如我的49e************************
-  },
-})
-gitment.render('container')
-</script>
+
     </article>
     <!-- license  -->
     
@@ -446,23 +433,6 @@ gitment.render('container')
 <!-- City版安装代码已完成 -->
     
     
-<div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-        // id: "Vue(四)", // 可选。默认为 location.href
-        owner: 'Sea',
-        repo: 'fistSea.github.io/',
-        oauth: {
-            client_id: 'd55bd81ebdb6158c8c22',
-            client_secret: '49f110c8e4f0e95f1f5afd20b6778e3e91a2e1df',
-        },
-    })
-    gitment.render('container')
-
-</script>
-
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -584,12 +554,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -959,9 +923,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
-    
         <span class="sidebar-category-name" data-categories="备忘录模式"><span class="iconfont-archer">&#xe60a;</span>备忘录模式</span>
+    
+        <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
     
         <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     

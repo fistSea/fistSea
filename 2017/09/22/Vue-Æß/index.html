@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">622</span>Reading time: <span class="post-count reading-time">3 min</span></span>
+                        <span>Word count: <span class="post-count word-count">580</span>Reading time: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -416,20 +416,7 @@ height:50vh;
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">      &lt;li v-for=<span class="string">"(eat,index) in sortEating"</span>&gt;</span><br><span class="line">        &#123;&#123;index+1&#125;&#125;:  &#123;&#123;eat.name&#125;&#125; - &#123;&#123;eat.chopper&#125;&#125;</span><br><span class="line">      &lt;/li&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br></pre></td></tr></table></figure>
 <p>js:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"> computed:&#123;</span><br><span class="line">   sortItems:<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">      <span class="built_in">return</span> this.items.sort(this.sortNumber)</span><br><span class="line">    &#125;,</span><br><span class="line">    sortEating:<span class="function"><span class="title">function</span></span>()&#123; //数组对象</span><br><span class="line">      <span class="built_in">return</span> this.sortEat(this.eating,<span class="string">'chopper'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods:&#123;</span><br><span class="line">    sortNumber:<span class="keyword">function</span> (a,b)&#123;</span><br><span class="line">            <span class="built_in">return</span> b<span class="_">-a</span></span><br><span class="line">  &#125;,</span><br><span class="line">    sortEat:<span class="keyword">function</span>(array,key)&#123;</span><br><span class="line">        </span><br><span class="line">          <span class="built_in">return</span> array.sort(<span class="keyword">function</span>(a,b)&#123;</span><br><span class="line">            var x=a[key];</span><br><span class="line">            console.log(a[key])</span><br><span class="line">             var y=b[key];</span><br><span class="line">            <span class="built_in">return</span> ((x&lt;y)?-1:((x&gt;y)?1:0));</span><br><span class="line">          &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><div id="container"></div></p>
-<p><link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css"></p>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-  owner: 'fistSea',              //比如我的叫anTtutu
-  repo: 'fistSea.github.io',                 //比如我的叫anTtutu.github.io
-  oauth: {
-    client_id: 'd55bd81ebdb6158c8c22',          //比如我的828***********
-    client_secret: '49f110c8e4f0e95f1f5afd20b6778e3e91a2e1df',  //比如我的49e************************
-  },
-})
-gitment.render('container')
-</script>
+
     </article>
     <!-- license  -->
     
@@ -458,23 +445,6 @@ gitment.render('container')
 <!-- City版安装代码已完成 -->
     
     
-<div id="container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    var gitment = new Gitment({
-        // id: "Vue(七)", // 可选。默认为 location.href
-        owner: 'Sea',
-        repo: 'fistSea.github.io/',
-        oauth: {
-            client_id: 'd55bd81ebdb6158c8c22',
-            client_secret: '49f110c8e4f0e95f1f5afd20b6778e3e91a2e1df',
-        },
-    })
-    gitment.render('container')
-
-</script>
-
     <!-- partial('_partial/comment/changyan') -->
     <!--PC版-->
 
@@ -596,12 +566,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
     
     
     
@@ -971,9 +935,9 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
-    
         <span class="sidebar-category-name" data-categories="备忘录模式"><span class="iconfont-archer">&#xe60a;</span>备忘录模式</span>
+    
+        <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
     
         <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
