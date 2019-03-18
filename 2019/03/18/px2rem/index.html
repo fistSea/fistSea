@@ -401,7 +401,8 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h4 id="postcss-pxtorem：转换-px-为-rem-的插件。"><a href="#postcss-pxtorem：转换-px-为-rem-的插件。" class="headerlink" title="postcss-pxtorem：转换 px 为 rem 的插件。"></a>postcss-pxtorem：转换 px 为 rem 的插件。</h4><h4 id="在-vue-中安装-postcss-pxtorem"><a href="#在-vue-中安装-postcss-pxtorem" class="headerlink" title="在 vue 中安装 postcss-pxtorem:"></a>在 vue 中安装 postcss-pxtorem:</h4><p><code>npm install --save-dev postcss-px2rem</code></p>
+        <h4 id="postcss-pxtorem：转换-px-为-rem-的插件。"><a href="#postcss-pxtorem：转换-px-为-rem-的插件。" class="headerlink" title="postcss-pxtorem：转换 px 为 rem 的插件。"></a>postcss-pxtorem：转换 px 为 rem 的插件。</h4><a id="more"></a>
+<h4 id="在-vue-中安装-postcss-pxtorem"><a href="#在-vue-中安装-postcss-pxtorem" class="headerlink" title="在 vue 中安装 postcss-pxtorem:"></a>在 vue 中安装 postcss-pxtorem:</h4><p><code>npm install --save-dev postcss-px2rem</code></p>
 <h4 id="配置-vue-loader-config-js"><a href="#配置-vue-loader-config-js" class="headerlink" title="配置 vue-loader.config.js"></a>配置 vue-loader.config.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">//引入 px2rem</span><br><span class="line">var px2rem = require(&apos;postcss-px2rem&apos;)</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  loaders: utils.cssLoaders(&#123;</span><br><span class="line">    sourceMap: sourceMapEnabled,</span><br><span class="line">    extract: isProduction,</span><br><span class="line">    /*允许使用usePostCSS*/</span><br><span class="line">    usePostCSS: true</span><br><span class="line">  &#125;),</span><br><span class="line">  cssSourceMap: sourceMapEnabled,</span><br><span class="line">  cacheBusting: config.dev.cacheBusting,</span><br><span class="line">  transformToRequire: &#123;</span><br><span class="line">    video: [&apos;src&apos;, &apos;poster&apos;],</span><br><span class="line">    source: &apos;src&apos;,</span><br><span class="line">    img: &apos;src&apos;,</span><br><span class="line">    image: &apos;xlink:href&apos;</span><br><span class="line">  &#125;</span><br><span class="line">  /*配置remUnit*/,</span><br><span class="line">  postcss: function() &#123;</span><br><span class="line">    return [px2rem(&#123; remUnit: 37.5 &#125;)]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="remUnit-为-1rem-应的-px-值，可以自己进行定义"><a href="#remUnit-为-1rem-应的-px-值，可以自己进行定义" class="headerlink" title="remUnit 为 1rem 应的 px 值，可以自己进行定义"></a>remUnit 为 1rem 应的 px 值，可以自己进行定义</h4><h4 id="在-index-html-页面中引入，设置比例与-remUnit-相同即可"><a href="#在-index-html-页面中引入，设置比例与-remUnit-相同即可" class="headerlink" title="在 index.html 页面中引入，设置比例与 remUnit 相同即可"></a>在 index.html 页面中引入，设置比例与 remUnit 相同即可</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize = (document.documentElement.clientWidth ||  document.body.clientWidth) /10 + &apos;px&apos;;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="在-pc-和移动端自适应项目中-可以通过设置-index-html-跟比例来控制显示"><a href="#在-pc-和移动端自适应项目中-可以通过设置-index-html-跟比例来控制显示" class="headerlink" title="在 pc 和移动端自适应项目中,可以通过设置 index.html 跟比例来控制显示."></a>在 pc 和移动端自适应项目中,可以通过设置 index.html 跟比例来控制显示.</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  var ua = navigator.userAgent.toLowerCase()</span><br><span class="line">  var flag = ua.match(/(phone|pad|pod|android|mobile|symbian)/i)</span><br><span class="line">  return !!flag</span><br><span class="line">&#125;)()</span><br><span class="line">if (window.isTouch) &#123;</span><br><span class="line">  document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize =</span><br><span class="line">    (document.documentElement.clientWidth || document.body.clientWidth) /</span><br><span class="line">      10 +</span><br><span class="line">    &apos;px&apos;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">  document.getElementsByTagName(&apos;html&apos;)[0].style.fontSize =</span><br><span class="line">    (document.documentElement.clientWidth || document.body.clientWidth) /</span><br><span class="line">      20 +</span><br><span class="line">    &apos;px&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -566,40 +567,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -1022,11 +989,11 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="React"><span class="iconfont-archer">&#xe60a;</span>React</span>
+        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
     
         <span class="sidebar-category-name" data-categories="Vue"><span class="iconfont-archer">&#xe60a;</span>Vue</span>
     
-        <span class="sidebar-category-name" data-categories="Git"><span class="iconfont-archer">&#xe60a;</span>Git</span>
+        <span class="sidebar-category-name" data-categories="React"><span class="iconfont-archer">&#xe60a;</span>React</span>
     
         <span class="sidebar-category-name" data-categories="Vue/Vue基础"><span class="iconfont-archer">&#xe60a;</span>Vue/Vue基础</span>
     
@@ -1036,9 +1003,9 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="备忘录模式"><span class="iconfont-archer">&#xe60a;</span>备忘录模式</span>
     
-        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
-    
         <span class="sidebar-category-name" data-categories="Vue/Vue-router"><span class="iconfont-archer">&#xe60a;</span>Vue/Vue-router</span>
+    
+        <span class="sidebar-category-name" data-categories="python"><span class="iconfont-archer">&#xe60a;</span>python</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
